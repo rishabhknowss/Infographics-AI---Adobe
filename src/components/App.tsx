@@ -42,7 +42,7 @@ const App: React.FC<AppProps> = ({ addOnUISdk }) => {
   const [error, setError] = useState("")
   const [progress, setProgress] = useState("")
 
-  const API_BASE_URL ="http://localhost:3000"
+  const API_BASE_URL ="https://infographics-ai-adobe.onrender.com"
 
   const generateInfographic = async () => {
     if (!url.trim() && !customPrompt.trim()) {
