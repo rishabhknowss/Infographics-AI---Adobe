@@ -35,8 +35,8 @@ interface GeneratedInfographic {
 const App: React.FC<AppProps> = ({ addOnUISdk }) => {
   const [url, setUrl] = useState("")
   const [customPrompt, setCustomPrompt] = useState("")
-  const [size, setSize] = useState("1024x1536")
-  const [quality, setQuality] = useState("high")
+  // const [size, setSize] = useState("1024x1536")
+  // const [quality, setQuality] = useState("high")
   const [isGenerating, setIsGenerating] = useState(false)
   const [generatedInfographic, setGeneratedInfographic] = useState<GeneratedInfographic | null>(null)
   const [error, setError] = useState("")
@@ -89,8 +89,8 @@ const App: React.FC<AppProps> = ({ addOnUISdk }) => {
         body: JSON.stringify({
           content: scrapedContent,
           customPrompt: customPrompt.trim(),
-          size,
-          quality,
+          size: "1024x1536",
+          quality: "high",
         }),
       })
 
@@ -134,8 +134,8 @@ const App: React.FC<AppProps> = ({ addOnUISdk }) => {
   const resetSettings = () => {
     setUrl("")
     setCustomPrompt("")
-    setSize("1024x1536")
-    setQuality("high")
+    // setSize("1024x1536")
+    // setQuality("high")
     setGeneratedInfographic(null)
     setError("")
     setProgress("")
@@ -177,7 +177,7 @@ const App: React.FC<AppProps> = ({ addOnUISdk }) => {
             </div>
           </div>
 
-          <div className="card">
+          {/* <div className="card">
             <h2>Settings</h2>
             <div className="control">
               <FieldLabel>Image Size</FieldLabel>
@@ -203,7 +203,7 @@ const App: React.FC<AppProps> = ({ addOnUISdk }) => {
                 <MenuItem value="low">Low</MenuItem>
               </Picker>
             </div>
-          </div>
+          </div> */}
 
           {(progress || error) && (
             <div className="card status-card">
