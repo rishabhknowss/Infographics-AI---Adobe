@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://localhost:5241', 'https://new.express.adobe.com/' , 'https://w513kh8ki.wxp.adobe-addons.com/' ], // Update with your Adobe Express add-on domain
+  origin: ['https://localhost:5241', 'https://new.express.adobe.com/' , 'https://w513kh8ki.wxp.adobe-addons.com/'], // Update with your Adobe Express add-on domain
   methods: ['GET', 'POST'],
 }));
 app.use(express.json());
