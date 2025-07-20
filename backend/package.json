@@ -1,0 +1,22 @@
+{
+  "name": "infographic-backend",
+  "version": "1.0.0",
+  "description": "Backend for Adobe Express Infographic Generator Add-on",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.6.0",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsdom": "^26.1.0",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
