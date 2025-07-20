@@ -11,8 +11,30 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://localhost:5241', 'https://new.express.adobe.com/' , 'https://w513kh8ki.wxp.adobe-addons.com/'], // Update with your Adobe Express add-on domain
-  methods: ['GET', 'POST'],
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'https://localhost:5241',
+      'https://new.express.adobe.com',
+      'https://w513kh8ki.wxp.adobe-addons.com',
+    ];
+
+    // Allow requests with no origin (e.g., server-to-server or curl)
+    if (!origin) return callback(null, true);
+
+    // Check if the origin is in allowedOrigins or matches adobe-addons.com subdomains
+    if (
+      allowedOrigins.includes(origin) ||
+      /^https:\/\/[a-z0-9-]+\.wxp\.adobe-addons\.com$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Optional: include if cookies or auth headers are needed
+  optionsSuccessStatus: 204, // Ensure 204 status for preflight requests
 }));
 app.use(express.json());
 
